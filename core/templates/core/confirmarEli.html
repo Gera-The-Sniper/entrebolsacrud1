@@ -1,0 +1,8 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<body>
+    <h1>¿De verdad desea eliminar el producto {{producto.name_prod}}?</h1>
+    <button class="btn btn-danger"><a href="/eliminar/{{producto.name_prod}}">Confirmar</a></button>
+    <div id="icono-volver"><a href="/"}><i class="fa-solid fa-door-open fa-xl"  id="icono-login"></i></a></div>
+</body>
+{% endblock %}

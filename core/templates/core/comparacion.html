@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="prod-comparado">
+{% for p in prod_comp %}
+
+<h1 id="comparando">Comparando "{{ p.name_prod }}"</h1>
+<div class="c1"><img class="imgfor" src="{{ p.image.url }}" alt="" /></div>
+<h2 class='marca-prod-comp'>Marca: {{ p.brand }}</h2>
+<h1 id="precio-comparado" class='precio-prod-comp'>Precio: ${{ p.price }}</h2>
+
+{% endfor %}
+
+</div>
+{% for p in lista_terminos %}
+    {% for d in p %} <!--Devuelve todos los productos encontrado mediante la busqueda y realiza la publicación de los mismos en pagina.-->
+
+    <div class="cards">
+    <div class="c1"><img class="imgfor" src="{{ d.image.url }}" alt="" /></div> <!--Para incluir la imagen que tenga el producto.-->
+        <div class="c2">
+            <div class="c21">
+                <h2 class='nombre-prod-search'>Nombre: {{ d.name_prod }}</h2></div> <!--Para incluir el nombre que tenga el producto.-->
+            <div class="c22">
+                <h2 class='marca-prod-search'>Marca: {{ d.brand }}</h2></div> <!--Para incluir la marca que tenga el producto.-->
+            <div class="c23">
+                <h2 class='categoria-prod-search'>Categoria: {{ d.category }}</h2></div> <!--Para incluir la categoria que tenga el producto.-->
+        </div>
+        <div class="c3">
+            <h1 class='precio-prod-search'>Precio: ${{ d.price }}</h1> <!--Para incluir el precio que tenga el producto.-->
+        </div>
+        <div class="c4">
+            <h1 class='negocio-prod-search'>Negocio: {{ d.client_id }}</h1> <!--Para incluir el nombre del negocio asociado al producto.-->
+        </div>
+    </div>
+    <hr size="10px" color="green">
+    {% endfor %}
+{% endfor %}
+{% endblock %}

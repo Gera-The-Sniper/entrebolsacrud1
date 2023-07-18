@@ -1,0 +1,33 @@
+/*navbar*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Permanent+Marker&family=Roboto+Mono:wght@100&family=Roboto:wght@300;900&family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Roboto+Mono:wght@100&family=Roboto:wght@300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Average+Sans&family=Yeseva+One&display=swap');
+
+
+/*footer*/
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: rgb(20, 20, 20);
+}
+
+.footer-barra {
+    width: 100%;
+    border-bottom: 0.5px solid #fff;
+}
+
+.footer span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: rgb(14, 195, 223);
+}
+
+.footer h3 {
+    font-size: 15px;
+}

@@ -1,0 +1,106 @@
+{% extends 'core/base.html' %}
+{% block content %}
+   {% load static %}
+   {% if messages %}
+
+      {% for m in messages %}
+      <div {% if m.tags %} class="alert alert-{{m.tags}} alert-dismissible" {% endif %}>
+          {{m}}
+      </div>
+      {% endfor %}
+
+    {% endif %}
+    <div class="titulo">
+      <div id="bien-div"><center><h1 id="bienvenido">Bienvenido a Entrebolsa</h1></center>
+      </div>
+      {% if user.is_authenticated %}
+        <div class="icono-login"><a href="/interfaz"><i class="fa-regular fa-user fa-xl" id="icono-login"></i></a>
+        <p>Su interfaz</p>
+        </div>
+      {% else %}
+        <div class="icono-login"><a href="{% url 'login' %}"><i class="fa-solid fa-door-open fa-xl"  id="icono-login"></i></a>
+        <p class="texto-sesion">Iniciar sesión</p>
+        </div>
+
+      {% endif %}
+    </div>
+<div class="container">
+   <div class="vistos"><center><h1>Los 6 más vistos</h1></center>
+   </div>
+   <div class="productos">
+      <div class="row">
+         <div class="col-sm-4">
+           <div class="card">
+             <div class="card-body">
+               <h5 class="card-title">Cereal Azucar Snow</h5>
+               <img class="imgfor" src="{% static 'core/img/cereal.jpg' %}"/>
+               <p class="card-text">$1300</p>
+               <p class="card-text">Snow</p>
+               <p class="card-text">Comida</p>
+             </div>
+           </div>
+         </div>
+         <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">PC de Escritorio Mac</h5>
+                <img class="imgfor" src="{% static 'core/img/pc.jpg' %}"/>
+                <p class="card-text">$1500000</p>
+                <p class="card-text">Mac</p>
+                <p class="card-text">Tecnología</p>
+              </div>
+            </div>
+          </div>
+         <div class="col-sm-4">
+           <div class="card">
+             <div class="card-body">
+               <h5 class="card-title">Lentes GMO Modernos</h5>
+               <img class="imgfor" src="{% static 'core/img/lentes.jpg' %}"/>
+               <p class="card-text">$30000</p>
+               <p class="card-text">GMO</p>
+               <p class="card-text">Moda</p>
+             </div>
+           </div>
+         </div>
+       </div>
+      </div>
+      <div class="productos2">
+       <div class="row">
+         <div class="col-sm-4">
+           <div class="card">
+             <div class="card-body">
+               <h5 class="card-title">Jamón Pierna PF</h5>
+               <img class="imgfor" src="{% static 'core/img/jamon.jpeg' %}"/>
+               <p class="card-text">$1500</p>
+               <p class="card-text">PF</p>
+               <p class="card-text">Comida</p>
+             </div>
+           </div>
+         </div>
+         <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Nintendo Switch Oled</h5>
+                <img class="imgfor" src="{% static 'core/img/consola.jpg' %}"/>
+                <p class="card-text">$259990</p>
+                <p class="card-text">Nintendo</p>
+                <p class="card-text">Tecnología</p>
+              </div>
+            </div>
+          </div>
+         <div class="col-sm-4">
+           <div class="card">
+             <div class="card-body">
+               <h5 class="card-title">Leche Ilolay Entera</h5>
+               <img class="imgfor" src="{% static 'core/img/leche.jpg' %}"/>
+               <p class="card-text">$1000</p>
+               <p class="card-text">Ilolay</p>
+               <p class="card-text">Comida</p>
+             </div>
+           </div>
+         </div>
+       </div>
+   </div>
+</div>
+   
+{% endblock %}

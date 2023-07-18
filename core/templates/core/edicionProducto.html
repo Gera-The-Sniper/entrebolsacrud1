@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<body>
+    <br>
+    <br>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form action="/confirmarEdit/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class="mb-3">
+            <label for="nombreform" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreform" name="nombreform" value="{{producto.name_prod}}" maxlength="50" required>
+            </div>
+            <input type="hidden" id="nombreantiguoform" name="nombreantiguoform" value="{{producto.name_prod}}">
+            <div class="mb-3">
+            <label for="precioform" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precioform" name="precioform" value="{{producto.price}}" onclick="filtro()" required>
+            </div>
+            <div class="mb-3">
+            <label for="marcaform" class="form-label">Marca</label>
+            <input type="text" class="form-control" id="marcaform" name="marcaform" value="{{producto.brand}}" maxlength="50" required>
+            </div>
+            <div class="mb-3">
+            <label for="imageform" class="form-label">Elije una imagen para el producto:</label>
+            <input type="file" id="imageform" name="imageform" accept="image/png, image/jpeg" required>
+            </div>
+            <div class="mb-3">
+            <label for="catform" class="form-label">Categoría</label>
+            <select class="form-select" aria-label="Default select example" id="catform" name="catform" required>
+                {% for c in categ %}
+                <option value="{{c.name_cat}}">{{c.name_cat}}</option>
+                {% endfor %}
+            </select>
+            </div>
+            <button type="submit" value="Submit" class="btn btn-primary">Guardar producto</button>
+            </form>
+    </div>
+</div>
+</body>
+{% endblock %}

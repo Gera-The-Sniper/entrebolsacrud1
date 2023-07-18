@@ -1,0 +1,188 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<body>
+    {% if user.is_authenticated %}
+    <div class='main'>
+        <div class="alerta-interfaz">
+            {% if messages %}
+
+                {% for m in messages %}
+                <div {% if m.tags %} class="alert alert-{{m.tags}} alert-dismissible" {% endif %}>
+                    {{m}}
+                </div>
+                {% endfor %}
+
+            {% endif %}
+        </div>
+        <div class="nombre">
+            <div class="nombrediv">
+                <center><h1 id="bienv-user">Bienvenido {{user.get_username}}</h1></center>
+            </div>
+            <div class="icono-logout"><a href="{% url 'logout' %}"><i class="fa-solid fa-door-open" id="icono-logout"></i></a></div>
+        </div>
+        <div class='segundary'>
+            
+          <div class='left'>
+            {% for m in minis %}
+            <div class='leftcontent'>
+              <img class='leftimg' src='{{m.image.url}}' alt="logoejemplo" /><i class="fa-regular fa-pen-to-square editicon"></i> 
+              <div class='leftdiv'>
+                <div id='ld1'><p class="texto-m">NOMBRE</p><p class="texto-m">{{m.name_mini}}</p><i class="fa-regular fa-pen-to-square editicon2"></i></div>
+                <div id='ld2'><p class="texto-m">TELÉFONO</p><p class="texto-m">{{m.phone_mini}}</p><i class="fa-regular fa-pen-to-square editicon2"></i></div>
+                <div id='ld3'><p class="texto-m">RUBRO</p><p class="texto-m">{{m.rubro}}</p><i class="fa-regular fa-pen-to-square editicon2"></i></div>
+                <div id='ld4'><p class="texto-m">DIRECCIÓN</p><p class="texto-m">{{m.address}}</p><i class="fa-regular fa-pen-to-square editicon2"></i></div>
+                {% endfor %}
+
+  
+  
+              </div>
+            </div>
+          </div>
+        
+          <!--Columna del medio, donde se muestran las operaciones que puede hacer el cliente-->
+
+          <div class='mid'>
+            <div class='midtitle' ><h1>OPERACIONES</h1></div>
+            <div class='midcontent'>
+            <button type="button" id="agregar" class='mid1' data-bs-target="#agre" data-bs-toggle="modal">AGREGAR PRODUCTO</button>
+            <div class="modal fade" id="agre">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title">Agregar producto</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="/agregarProd/" method="POST" enctype="multipart/form-data" name="formagre" id="formagre">{% csrf_token %}
+                        
+                        <input type="hidden" class="form-control" id="codigorandom" name="codigoform">
+                        <script>
+                            var numerorandom;
+                            numerorandom = Math.floor(Math.random()*10000);
+                            document.formagre.codigorandom.value = numerorandom
+                        </script>
+                        <div class="mb-3">
+                        <label for="nombreform" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombreform" name="nombreform" placeholder="Nombre del producto" maxlength="50" required>
+                        </div>
+                        <div class="mb-3">
+                        <label for="precioform" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="precioform" name="precioform" placeholder="Precio del producto" onkeydown="filtro()" required>
+                        </div>
+                        <div class="mb-3">
+                        <label for="marcaform" class="form-label">Marca</label>
+                        <input type="text" class="form-control" id="marcaform" name="marcaform" placeholder="Marca del producto" maxlength="50" required>
+                        </div>
+                        <div class="mb-3">
+                        <label for="imageform" class="form-label">Elije una imagen para el producto:</label>
+                        <input type="file" id="imageform" name="imageform" accept="image/png, image/jpeg" required>
+                        </div>
+                        <div class="mb-3">
+                        <label for="catform" class="form-label">Categoría</label>
+                        <select class="form-select" aria-label="Default select example" id="catform" name="catform" required>
+                            {% for c in categ %}
+                            <option value="{{c.name_cat}}">{{c.name_cat}}</option>
+                            {% endfor %}
+                        </select>
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" value="Submit" class="btn btn-primary">Guardar producto</button>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <button type="button" id="modificar" class='mid2' data-bs-target="#modi" data-bs-toggle="modal">MODIFICAR PRODUCTO</button>
+            <div class="modal fade" id="modi">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title">Ingresa nombre de producto a modificar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="/editarProd/" method="POST">{% csrf_token %}
+                        <div class="mb-3">
+                        <label for="nombreform" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombreform" name="nombreform" placeholder="Nombre del producto" maxlength="50">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" value="Submit" class="btn btn-primary">Editar producto</button>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="eliminar" class='mid3' data-bs-target="#eli" data-bs-toggle="modal">ELIMINAR PRODUCTO</button>
+            <div class="modal fade" id="eli">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title">Ingresa nombre de producto a eliminar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="/eliminarProd/" method="POST">{% csrf_token %}
+                        <div class="mb-3">
+                        <label for="nombreform" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombreform" name="nombreform" placeholder="Nombre del producto" maxlength="50">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" value="Submit" class="btn btn-primary">Borrar producto</button>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+  
+          <div class='right'>
+            <div class='righttitle'> <h1>MIS PRODUCTOS</h1></div>
+            <div class='rightcontent'>
+              <div>
+                <div class='rg1'>
+                    {% for p in productos %}
+                    <div class="card" style="width: 18rem;">
+                        <p class="card-text dato-prod" id="codi-prod">#{{p.codigo}}</p>
+                        <p class="card-text dato-prod" id="nom-prod">{{p.name_prod}}</p>
+                        <p class="card-text dato-prod">{{p.price}}</p>
+                        <p class="card-text dato-prod">{{p.brand}}</p>
+                        <p class="card-text dato-prod">{{p.category_id}}</p>
+                        <p class="card-text"><img class="imgfor" src="{{p.image.url}}"></p>
+                    </div>
+                    <div class="editar-borrar" align="center">
+                    <p><a href="modificar1/{{p.name_prod}}" id="eliminar1" type="button" class="btn btn-success">Editar</a></p>
+                    <p id="editar1" type="button" class="btn btn-danger" onclick="confirmar({{p.codigo}})">Borrar</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                
+              </div>
+              
+            </div>
+          
+          </div>
+          {% else %}
+
+        <div align="center"><h1 class="loguee" align="center">No ha <a href="{% url 'login' %}">iniciado sesión</a>, por</h1>
+            <h1 class="loguee" align="center">lo cual no puede ver la interfaz</h1>
+        </div>
+
+          {% endif %}
+        </div>
+    </div>
+</body>
+
+{% endblock %}

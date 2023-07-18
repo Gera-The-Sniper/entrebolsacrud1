@@ -1,0 +1,308 @@
+#portada {
+    text-align: center;
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+
+#sop-title {
+    padding-top: 30px;
+}
+
+#cont {
+    margin-top: 100px;
+}
+
+#agregar, #modificar, #eliminar {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 50px;
+}
+
+#eliminar {
+    margin-bottom: 50px;
+}
+
+#prod {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#oper {
+    text-align: center;
+}
+
+#minim {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.title {
+    padding-top: 20px;
+}
+
+.modal-body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.imgfor {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.icono-modal {
+    width: 200px;
+    height: 200px;
+    display:block;
+    margin:auto;
+}
+
+#esta-seguro {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#bienvenido {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 300px;
+}
+
+#bien-div {
+    background-color: rgb(14, 195, 223);;
+}
+
+.titulo {
+    background-color: rgb(14, 195, 223);;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.icono-login {
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 30px;
+}
+
+.productos1, .productos2 {
+    margin-top: 40px;
+}
+
+.vistos {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 70px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.nav {
+    background-color: black;
+}
+
+#icono-pagina {
+    position: relative;
+    margin-left: 50px;
+}
+
+#busqueda {
+    width: 50%
+}
+
+.noexis {
+    background-color: rgb(14, 195, 223);;
+}
+
+#noexis {
+    padding-top: 40px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#icono-volver {
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+.volver {
+    text-decoration: none;
+}
+
+.texto-sesion {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+
+
+.cont-search {
+    display: flex;
+    align-items: center;
+	justify-content: center;
+}
+
+#busqueda-prod {
+    width: 600px;
+	height: 30px;
+	display: flex;
+}
+
+#img-pagina {
+    width: 120px;
+    height: 100px;
+}
+
+#footer-pag {
+    background-color: black;
+    height: 120px;
+}
+
+.texto-footer {
+    color: white;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+    padding-top: 40px;
+}
+
+.cont-footer {
+    display: flex;
+    align-items: center;
+}
+
+.img-red {
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.Principal {
+    margin-bottom: 100px;
+    min-height: 400px;
+}
+
+#bienv-user {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.nombre-prod-search {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 40px;
+}
+
+.c22 {
+    margin-top: 30px;
+}
+
+.marca-prod-search {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.categoria-prod-search {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.c3 {
+    margin-top: 20px;
+}
+
+.precio-prod-search {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px;
+    font-weight: 1000;
+}
+
+.negocio-prod-search {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px;
+}
+
+.container-card {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.cards {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#resultados-search {
+    padding-left: 100px;
+}
+
+#logueate {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 30px;
+}
+
+#form-login {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#comparar {
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 40px;
+}
+
+#comparando {
+    font-family: 'Roboto Mono', monospace;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.prod-comparado {
+    margin-top: 40px;
+    text-align: center;
+    background-color: aqua;
+    margin-left: 350px;
+    margin-right: 350px;
+    border-radius: 20px;
+    border: 5px solid;
+}
+
+.marca-prod-comp {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.categoria-prod-comp {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+
+.precio-prod-comp {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px;
+    font-weight: 1000;
+}
+
+.negocio-prod-comp {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px;
+}
+
+#precio-comparado {
+    font-size: 50px;
+}
+
+#tu-nom-o-pass {
+    background-color: aqua;
+}

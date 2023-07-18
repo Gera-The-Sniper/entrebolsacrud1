@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %} <!--Extiende el template de base.html para ser utilizado en la pagina de busqueda.-->
+{% block content %} <!--Indica el comienzo del bloque de contenido a ser utilizado por el template base.-->
+
+{% if searched %}
+{% if productos|length > 0 %}
+<h1 id="resultados-search">Resultados de la Búsqueda: "{{ searched }}"</h1> <!--Texto en pantalla que indica aquello que se ha escrito en la barra de busqueda.-->
+<br/>
+<div class="container-card">
+{% for producto in productos %} <!--Devuelve todos los productos encontrado mediante la busqueda y realiza la publicación de los mismos en pagina.-->
+
+                    <div class="cards">
+                    <div class="c1"><img class="imgfor" src="{{ producto.image.url }}" alt="" /></div> <!--Para incluir la imagen que tenga el producto.-->
+                        <div class="c2">
+                            <div class="c21">
+                                <h2 class='nombre-prod-search'>Nombre: {{ producto.name_prod }}</h2></div> <!--Para incluir el nombre que tenga el producto.-->
+                            <div class="c22">
+                                <h2 class='marca-prod-search'>Marca: {{ producto.brand }}</h2></div> <!--Para incluir la marca que tenga el producto.-->
+                            <div class="c23">
+                                <h2 class='categoria-prod-search'>Categoria: {{ producto.category }}</h2></div> <!--Para incluir la categoria que tenga el producto.-->
+                        </div>
+                        <div class="c3">
+                            <h1 class='precio-prod-search'>Precio: ${{ producto.price }}</h1> <!--Para incluir el precio que tenga el producto.-->
+                        </div>
+                        <div class="c4">
+                            <h1 class='negocio-prod-search'>Negocio: {{ producto.client_id }}</h1> <!--Para incluir el nombre del negocio asociado al producto.-->
+                        </div>
+                        <p><a href="/comparar/{{producto.name_prod}}/{{producto.codigo}}" id="comparar" type="button" class="btn btn-success">Comparar</a></p>
+                    </div>
+{% endfor %} <!--Sentencia necesaria para indicar el final de la llamada del 'for'-->
+                </div>
+{% else %}
+    <h1 id="resultados-search">No hay resultados, ¡qué lástima!</h1>
+{% endif %}
+{% else %}
+<h1>No ingresaste un producto a buscar.</h1>
+{% endif %}
+
+{% endblock %} <!--Indica el fin del bloque de contenido.-->
+
+
+
+
