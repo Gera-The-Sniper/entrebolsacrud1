@@ -3,3 +3,10 @@ Contraseña: juanito123
 
 Username: Nancy_Tienda_Florcitas
 Contraseña: Nancy123.
+
+-------------------------------------------------
+
+Administrador
+
+Usuario: klonoa
+Contraseña: 123
